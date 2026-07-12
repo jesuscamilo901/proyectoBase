@@ -1,0 +1,265 @@
+/* 1. EL FONDO */
+.app-background {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1934&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. EL PANEL GIGANTE DE CRISTAL */
+.glass-panel {
+  width: 100%;
+  max-width: 1300px; 
+  height: 85vh; 
+  position: relative;
+  background: rgba(20, 30, 45, 0.35); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.3); 
+  border-left: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+}
+
+/* 3. LA LÍNEA CURVA (SVG) */
+.glowing-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Detrás del logo y textos */
+  pointer-events: none; /* Evita que la línea bloquee los clics del usuario en el menú */
+}
+
+/* 4. EL LOGO */
+.logo-box {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.02) 100%);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 2px 5px rgba(255,255,255,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10; 
+}
+
+.l-icon { font-size: 42px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); line-height: 1;}
+.logo-text { font-size: 14px; margin-top: 4px; }
+
+/* 5. LA BARRA SUPERIOR Y TEXTOS */
+.top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  margin-left: auto;
+  margin-right: auto; 
+  padding-left: 100px; 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover { color: white; }
+
+.nav-links a.active {
+  color: white;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5); 
+}
+
+.company-name {
+  position: absolute;
+  right: 40px;
+  color: rgba(255,255,255,0.7);
+  font-size: 18px;
+}
+
+
+/* =========================================
+   DISEÑO RESPONSIVO (Tablets y Celulares)
+   ========================================= */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Reducimos el padding del fondo para ganar espacio en pantalla */
+  .app-background {
+    padding: 10px;
+  }
+
+  /* 2. El panel de cristal ocupa casi toda la pantalla */
+  .glass-panel {
+    height: 96vh;
+    border-radius: 15px;
+  }
+
+  /* 3. Hacemos el logo más pequeño y ajustamos su posición */
+  .logo-box {
+    top: 15px;
+    left: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+  }
+  
+  .l-icon { 
+    font-size: 26px; 
+  }
+  
+  .logo-text { 
+    font-size: 10px; 
+    margin-top: 2px;
+  }
+
+  /* 4. Adaptamos la barra superior para que los elementos se apilen */
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start; /* Alineamos a la izquierda */
+    height: auto;
+    padding: 25px 20px 20px 20px;
+  }
+
+  /* 5. Ajustamos el menú para que no choque con el logo */
+  .nav-links {
+    padding-left: 70px; /* Deja el hueco exacto para el logo pequeño */
+    margin-left: 0;
+    gap: 20px; /* Reducimos el espacio entre "Menu" y "Contacto" */
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .nav-links a.active {
+    font-size: 18px;
+  }
+
+  /* 6. El nombre de la empresa baja y se acomoda debajo del menú */
+  .company-name {
+    position: static; /* Le quitamos el absolute para que fluya natural */
+    margin-top: 15px;
+    padding-left: 70px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* 7. Ajustamos la escala de la línea brillante (SVG) */
+  .glowing-line {
+    /* Hacemos la curva más pequeña para que encaje con el nuevo tamaño del logo */
+    transform: scale(0.6) translate(-25%, -35%);
+    transform-origin: top left;
+  }
+}
+
+/* =========================================
+   DISEÑO RESPONSIVO (Tablets y Celulares)
+   ========================================= */
+@media screen and (max-width: 768px) {
+  
+  .app-background {
+    padding: 10px;
+  }
+
+  .glass-panel {
+    height: 96vh;
+    border-radius: 15px;
+  }
+
+  .logo-box {
+    top: 15px;
+    left: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+  }
+  
+  .l-icon { 
+    font-size: 26px; 
+  }
+  
+  .logo-text { 
+    font-size: 10px; 
+    margin-top: 2px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 25px 20px 20px 20px;
+  }
+
+  .nav-links {
+    padding-left: 70px; 
+    margin-left: 0;
+    gap: 20px; 
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .nav-links a.active {
+    font-size: 18px;
+  }
+
+  .company-name {
+    position: static; 
+    margin-top: 15px;
+    padding-left: 70px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* 7. CORRECCIÓN DE LA LÍNEA SVG */
+  .glowing-line {
+    width: 200%; /* ¡Esto evita que la línea se corte a la mitad! */
+    transform: scale(0.65) translate(-20px, 50px);
+    transform-origin: top left;
+  }
+}
+
+/* =========================================
+   AJUSTE EXTRA PARA CELULARES MUY PEQUEÑOS
+   ========================================= */
+@media screen and (max-width: 480px) {
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .glowing-line {
+    width: 200%; /* Lo aplicamos aquí también */
+    transform: scale(0.55) translate(-20px, 70px);
+    transform-origin: top left;
+  }
+}
