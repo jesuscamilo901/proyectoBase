@@ -18,21 +18,21 @@
             filter="url(#glow-effect)" />
     </svg>
 
-    <div class="logo-box">
+    <div class="logo-box" routerLink="/" style="cursor: pointer;">
       <span class="l-icon">ℒ</span>
       <span class="logo-text">Logo</span>
     </div>
 
     <header class="top-nav">
       <nav class="nav-links">
-        <a href="#">Menu</a>
-        <a href="#" class="active">Contacto</a>
+        <a routerLink="/menu" routerLinkActive="active">Menu</a>
+        <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
       </nav>
       <div class="company-name">Nombre Empresa</div>
     </header>
 
     <main class="main-content">
+      <router-outlet></router-outlet>
     </main>
-
   </div>
 </div>
