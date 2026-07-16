@@ -87,12 +87,17 @@
 
 .nav-links a {
   text-decoration: none;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6); /* El blanco transparente original */
   font-size: 18px;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-block; /* Super importante para que el scale() funcione perfecto */
 }
 
-.nav-links a:hover { color: white; }
+.nav-links a:hover { 
+  color: white; 
+  transform: scale(1.15); /* Lo hace un 15% más grande */
+  text-shadow: 0 0 12px rgba(255,255,255,0.8); /* Brillo externo */
+}
 
 .nav-links a.active {
   color: white;
@@ -157,9 +162,7 @@
     gap: 20px; /* Reducimos el espacio entre "Menu" y "Contacto" */
   }
 
-  .nav-links a {
-    font-size: 16px;
-  }
+ 
 
   .nav-links a.active {
     font-size: 18px;
@@ -240,10 +243,6 @@
     padding-left: 70px; 
     margin-left: 0;
     gap: 20px; 
-  }
-
-  .nav-links a {
-    font-size: 16px;
   }
 
   .nav-links a.active {
