@@ -155,14 +155,18 @@
     padding: 25px 20px 20px 20px;
   }
 
-  /* 5. Ajustamos el menú para que no choque con el logo */
-  .nav-links {
-    padding-left: 70px; /* Deja el hueco exacto para el logo pequeño */
-    margin-left: 0;
-    gap: 20px; /* Reducimos el espacio entre "Menu" y "Contacto" */
+  .main-content {
+    padding: 15px; 
   }
 
- 
+  /* 5. Ajustamos el menú para que no choque con el logo */
+  .nav-links {
+    padding-left: 70px; 
+    margin-left: 0;
+    gap: 15px; /* Reducido un poco */
+    display: flex;
+    flex-wrap: wrap; /* Evita que el menú se salga a la derecha */
+  }
 
   .nav-links a.active {
     font-size: 18px;
@@ -170,11 +174,13 @@
 
   /* 6. El nombre de la empresa baja y se acomoda debajo del menú */
   .company-name {
-    position: static; /* Le quitamos el absolute para que fluya natural */
+    position: static; 
     margin-top: 15px;
     padding-left: 70px;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    display: block;
   }
 
   /* 7. Ajustamos la escala de la línea brillante (SVG) */
