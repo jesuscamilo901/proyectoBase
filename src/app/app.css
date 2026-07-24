@@ -30,9 +30,10 @@
   border-left: 1px solid rgba(255, 255, 255, 0.3); 
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   
-  /* Permite el scroll vertical si el contenido es muy largo */
-  overflow-y: auto; 
-  overflow-x: hidden; /* Mantiene oculto el scroll horizontal por si acaso */
+  /* NUEVO: Lo convertimos en columna y OCULTAMOS el scroll global */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
 }
 
 /* 3. LA LÍNEA CURVA (SVG) */
@@ -220,16 +221,17 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra todo horizontalmente */
+  align-items: stretch; /* NUEVO: Permite que el menú ocupe todo el ancho */
   width: 100%;
   
-  /* Asegúrate de tener padding inferior generoso */
-  padding: 40px 40px 60px 40px; /* Arriba, Derecha, Abajo (60px), Izquierda */
+  /* NUEVO: Ocupa el espacio restante bajo el nav y no hace scroll */
+  flex: 1;
+  overflow: hidden;
   
+  padding: 0 40px 20px 40px; /* Ajuste del padding superior a 0 */
   box-sizing: border-box;
   position: relative;
   z-index: 2;
-  margin-top: 20px; 
 }
 
 
