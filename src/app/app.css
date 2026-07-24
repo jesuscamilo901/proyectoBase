@@ -64,6 +64,28 @@
   justify-content: center;
   color: white;
   z-index: 10; 
+  transition: all 0.3s ease-in-out;
+}
+
+.logo-box:hover {
+  /* Cambiamos la sombra oscura por un resplandor brillante y aclaramos el borde */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 2px 10px rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+.logo-img {
+  width: 120%;
+  height: auto;
+  border-radius: 50%;
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 3. LA ILUMINACIÓN DE LA IMAGEN AL HACER HOVER */
+.logo-box:hover .logo-img {
+  /* Le sube el brillo un 20% y le pone un halo de luz alrededor al png */
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+  transform: scale(1.05); /* Opcional: hace que el logo crezca un poquitito, si no te gusta bórralo */
 }
 
 .l-icon { font-size: 42px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); line-height: 1;}
