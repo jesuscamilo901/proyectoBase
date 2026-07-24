@@ -10,6 +10,32 @@ html, body {
 }
 
 /* =========================================
+   CONTENEDOR GLOBAL PARA TODAS LAS VISTAS
+   ========================================= */
+
+/* Hace que los componentes de Angular llenen el espacio estático que dejó app.css */
+app-menu, app-contacto {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* La clase global para centrar y dar márgenes (Reemplaza a menu-wrapper) */
+.page-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 900px; /* Ancho máximo para que no se estire por toda la pantalla */
+  margin: 0 auto; /* Centrado horizontal */
+  padding-left: 10%; 
+  padding-top: 5%;
+}
+
+/* =========================================
    ANIMACIONES GLOBALES REUTILIZABLES
    ========================================= */
 

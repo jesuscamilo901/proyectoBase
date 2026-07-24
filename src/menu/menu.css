@@ -1,0 +1,172 @@
+/* Aseguramos que el componente llene el espacio estático */
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* NUEVO: Contenedor que centra el menú y evita que se junte con el logo */
+.menu-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 900px; /* Ancho máximo para que no se estire por toda la pantalla */
+  margin: 0 auto; /* Magia para centrarlo horizontalmente */
+  padding-left: 10%; /* Un pequeño margen para separar del borde izquierdo */
+  padding-top: 5%
+}
+
+.menu-header {
+  flex-shrink: 0; 
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* El contenedor que hará scroll */
+.dishes-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+.dishes-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* NUEVO: Estilos de las tarjetas (antes estaban en el HTML) */
+.dish-card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 380px; /* Evita que las tarjetas se hagan gigantes */
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-img {
+  width: 100%; 
+  height: 180px; 
+  object-fit: cover; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dish-img:hover {
+  transform: scale(1.03); /* Un pequeño zoom al pasar el mouse por la foto */
+}
+
+
+/* ============================
+   ESTILOS DEL MODAL DE CRISTAL
+   ============================ */
+
+.glass-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 25, 0.7); /* Un poquito más oscuro para que resalte */
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.glass-modal-content {
+  position: relative;
+  background: rgba(20, 30, 45, 0.9); /* Un poco más opaco para que el texto se lea mejor */
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px; /* Padding interno uniforme */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+  
+  /* ESTOS SON LOS CAMBIOS CLAVE PARA QUE SE ADAPTE */
+  display: flex;
+  flex-direction: column; /* Apila el contenido verticalmente */
+  align-items: center;
+  width: fit-content;      /* Se ajusta al ancho del contenido */
+  max-width: 80vw;         /* Pero no pasa del 80% de la pantalla */
+  height: auto;            /* Se ajusta automáticamente al alto */
+  max-height: 90vh;        /* Pero no pasa del 90% de la pantalla */
+  
+  animation: scaleUp 0.3s ease-out;
+}
+
+/* La imagen expandida */
+.modal-img {
+  max-width: 100%;
+  max-height: 50vh; /* Ajustamos a 50vh para dejar espacio al texto */
+  border-radius: 12px;
+  object-fit: contain; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px; /* Espacio entre la foto y el texto */
+}
+
+/* El botón flotante para cerrar */
+.close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(20, 30, 45, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Estilos para el texto dentro del modal */
+.modal-title {
+  margin: 0;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+}
+
+.modal-desc {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
