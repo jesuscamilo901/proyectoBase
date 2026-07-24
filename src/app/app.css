@@ -149,6 +149,17 @@
     padding: 10px;
   }
 
+  .page-wrapper {
+    /* Reducimos el padding en celular para que quepan los platillos */
+    padding-left: 5% !important; 
+    padding-right: 5% !important;
+    padding-top: 1% !important;
+    
+    /* Aseguramos que el contenido no intente expandirse más que la pantalla */
+    width: 90% !important;
+    margin: 0 auto;
+  }
+
   /* 2. El panel de cristal ocupa casi toda la pantalla */
   .glass-panel {
     height: 96vh;
